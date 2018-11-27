@@ -31,18 +31,20 @@ class GeneticCalculatorPyEasyGa:
                     weight += item[0]
                     volume += item[1]
                     value += item[2]
+            # if weight or volume has exceeded maximum allowed value dropping this specimen
             if weight > max_weight or volume > max_volume:
                 value = 0
             return value
 
 
-        genetic_algorithm.fitness_function = fitness
+        genetic_algorithm.fitness_function = fitness # setting a fitness function
         genetic_algorithm.run()
         result = genetic_algorithm.best_individual()
         processed_result = self.process_result(result)
         return processed_result
 
 
+    # A method processing result from peasyga to the required format.
     def process_result(self, result):
         summary_value = result[0]
         summary_weight = 0
