@@ -1,11 +1,16 @@
 from business_logic.data_processor import DataProcessor
+from business_logic.genetic_calculator import GeneticCalculator
 from business_logic.genetic_calculator_pyeasyga import GeneticCalculatorPyEasyGa
 from business_logic.result_writer import *
 
 
 source_file_path = 'sources/6.txt'
 result_file_path = 'result/task_1.json'
+result_file_path_2 = 'result/task_2.json'
 
+maximum_iteration_amount = 500
+basic_population_amount = 200
+minimum_iteration_amount = 100
 
 def main():
     print('Processing data from ' + source_file_path + '...')
@@ -16,12 +21,24 @@ def main():
     print('Maximum allowed volume is ' + str(data.max_volume))
     print_items(data)
     print()
-    print('Working on the task 1...')
-    print('Trying to find the best solution using pyeasyga library...')
-    ga_calculator_1 = GeneticCalculatorPyEasyGa(data)
-    task_1_result = ga_calculator_1.find_solution()
-    print('Task 1 is done. The result json has been written to ' + result_file_path)
-    create_json(result_file_path, task_1_result)
+
+    # print('Working on the task 1...')
+    # print('Trying to find the best solution using pyeasyga library...')
+    # ga_calculator_1 = GeneticCalculatorPyEasyGa(data)
+    # task_1_result = ga_calculator_1.find_solution()
+    # create_json(result_file_path, task_1_result)
+    # print('Task 1 is done. The result json has been written to ' + result_file_path)
+
+    print('Working on the task 2...')
+    print('Trying to find the best solution using own GeneticCalculator class...')
+    ga_calculator_2 = GeneticCalculator(data,
+                                        basic_population_amount = basic_population_amount,
+                                        maximum_iteration_amount = maximum_iteration_amount,
+                                        minimum_iteration_amount = minimum_iteration_amount)
+    task_2_result = ga_calculator_2.find_solution()
+    create_json(result_file_path_2, task_2_result)
+    print('Task 2 is done. The result json has been written to ' + result_file_path_2)
+
 
 def print_items(data: DataProcessor):
     print('There are ' + str(len(data.items)) + ' items:')
