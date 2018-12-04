@@ -213,7 +213,7 @@ class GeneticCalculator:
             inner_result['items'] = used_items_nums
 
             outer_result = {}
-            outer_result['1'] = inner_result
+            outer_result['2'] = inner_result
             return outer_result
 
 
