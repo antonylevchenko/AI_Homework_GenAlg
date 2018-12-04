@@ -22,12 +22,12 @@ def main():
     print_items(data)
     print()
 
-    # print('Working on the task 1...')
-    # print('Trying to find the best solution using pyeasyga library...')
-    # ga_calculator_1 = GeneticCalculatorPyEasyGa(data)
-    # task_1_result = ga_calculator_1.find_solution()
-    # create_json(result_file_path, task_1_result)
-    # print('Task 1 is done. The result json has been written to ' + result_file_path)
+    print('Working on the task 1...')
+    print('Trying to find the best solution using pyeasyga library...')
+    ga_calculator_1 = GeneticCalculatorPyEasyGa(data)
+    task_1_result = ga_calculator_1.find_solution()
+    create_json(result_file_path, task_1_result)
+    print('Task 1 is done. The result json has been written to ' + result_file_path)
 
     print('Working on the task 2...')
     print('Trying to find the best solution using own GeneticCalculator class...')
